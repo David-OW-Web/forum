@@ -1,0 +1,11 @@
+RewriteEngine on
+
+RewriteRule ^(contact|register)$ $1.php [NC,L]
+
+RewriteRule ^question/(\d+)$ question.php?id=$1 [NC,L]
+
+RewriteRule ^category/(\d+)$ category.php?id=$1 [NC,L]
+
+RewriteRule ^index/(\d+)$ index.php?page=$1 [NC,L]
+
+RewriteRule ^account/(\d+)$ account.php?id=$1 [NC,L]

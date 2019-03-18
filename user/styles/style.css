@@ -1,0 +1,53 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.container {
+    grid-column: 2 / 13;
+}
+
+.sidebar-dashboard {
+    grid-column: 1 / 2;
+    height: 100vh;
+    background: grey;
+}
+
+
+
+.active {
+    background-color: #ccc;
+}
+
+.dropdown-container {
+    display: none;
+}
+
+.dropdown-container a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.btn-dropdown {
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    /* border: none; */
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.login-activity {
+    background: #ccc;
+    margin: 5px;
+}

@@ -1,0 +1,221 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.container {
+    grid-column: 1 / 13;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-container {
+    grid-column: 1 / 13;
+    background: #ccc;
+}
+
+.answer-container {
+    background: #ccc;
+    margin: 15px;
+}
+
+.user-info {
+    background: #ccc;
+}
+
+.about {
+    background: #ccc;
+}
+
+.user-sidebar {
+    grid-column: 1 / 2;
+}
+
+.tab {
+    grid-column: 1 / 13;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background: grey;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+    border-bottom: 2px solid deepskyblue;
+}
+
+.tabcontent {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    min-height: 300px;
+}
+
+.tabcontainer {
+    background: #ccc;
+    margin: 10px;
+}
+
+.user-details {
+    background: #ccc;
+}
+
+.navbar {
+    grid-column: 1 / 13;
+    display: flex;
+    flex-direction: row;
+    background: black;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background: #ccc;
+    width: 100vw;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    grid-column: 1/ 13;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    margin-right: 15px;
+}
+
+.dropbtn {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.question-card {
+    width: 300px;
+    height: 180px;
+    background: grey;
+    margin: 15px;
+}
+
+.newest-questions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.title {
+    grid-column: 1 / 13;
+    text-align: center;
+}
+
+.search-bar, .search-bar-left {
+    margin-top: 5px;
+    grid-column: 1 / 13;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-bar-left form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar form label {
+    margin-right: 5px;
+}
+
+.search-results {
+    grid-column: 1 / 13;
+}
+
+.result-container {
+    background: #ccc;
+    margin: 15px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.question-options {
+    grid-column: 1 / 13;
+}
+
+#paging {
+    grid-column: 1 / 13;
+}
+
+.register {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.login {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
