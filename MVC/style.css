@@ -1,0 +1,42 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.tab {
+    grid-column: 1 / 13;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background: grey;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+    border-bottom: 2px solid deepskyblue;
+}
+
+.tabcontent {
+    display: none;
+    border: 1px solid #ccc;
+    border-top: none;
+    min-height: 300px;
+}
+
+.tabcontainer {
+    background: #ccc;
+    margin: 10px;
+}
