@@ -4,6 +4,17 @@ body {
     padding: 0;
 }
 
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr)
+}
+
+textarea {
+    resize: none;
+}
+
+/* ::selection */
+
 .tab {
     grid-column: 1 / 13;
     height: 50px;
@@ -39,4 +50,232 @@ body {
 .tabcontainer {
     background: #ccc;
     margin: 10px;
+}
+
+/*
+.navbar {
+    background: grey;
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+*/
+
+.navbar {
+    grid-column: 1 / 13;
+    display: flex;
+    flex-direction: row;
+    background: black;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    background: #ccc;
+    width: 100vw;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    grid-column: 1/ 13;
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    margin-right: 15px;
+}
+
+.dropbtn {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.newest-questions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.question-card {
+    width: 400px;
+    height: 300px;
+}
+
+/*
+.search-bar {
+    grid-column: 1 / 13;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-bar form input {
+    width: 200px;
+    height: 25px;
+}
+
+.search-bar form button {
+    width: 100px;
+}
+
+.search-bar form label {
+    display: flex;
+    align-self: center;
+}
+*/
+
+#paging {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 13;
+}
+
+.title {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form input {
+    width: 400px;
+    height: 25px;
+}
+
+.login form button {
+    width: 400px;
+    height: 25px;
+}
+
+.register {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: center;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register form input {
+    width: 400px;
+    height: 25px;
+}
+
+.register form button {
+    width: 400px;
+    height: 25px;
+}
+
+.question-container {
+    grid-column: 1 / 13;
+}
+
+.question-options {
+    grid-column: 1 / 13;
+}
+
+.form-container {
+    grid-column: 1 / 13;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form textarea {
+    width: 400px;
+}
+
+.form-container button {
+    width: 400px;
+}
+
+.container {
+    grid-column: 1 / 13;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container .answer-container {
+    width: 500px;
+}
+
+.search-bar, .search-bar-left {
+    margin-top: 5px;
+    grid-column: 1 / 13;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.search-bar-left form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar form label {
+    margin-right: 5px;
+}
+
+.search-results {
+    grid-column: 1 / 13;
+}
+
+.result-container {
+    margin: 15px;
 }

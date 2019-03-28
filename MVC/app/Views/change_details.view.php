@@ -17,6 +17,20 @@
 
                     <button type="submit" name="about_me">About</button>
                 </form>
+
+            <h3>Passwort ändern</h3>
+            <?php echo $msg; ?>
+                <form action="" method="post">
+                    <label for="current_password">Aktuelles Passwort</label>
+                    <?php echo $accObj->getError(Constants::$passwordIncorrect); ?>
+                    <input type="text" id="current_password" name="current_password">
+
+                    <label for="new_password">Neues Passwort</label>
+                    <?php echo $accObj->getError(Constants::$passwordTooLong); ?>
+                    <input type="text" id="new_password" name="new_password">
+
+                    <button type="submit" name="change_password">Passwort aktualisieren</button>
+                </form>
         </div>
     </div>
 </body>

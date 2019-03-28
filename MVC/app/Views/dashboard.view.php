@@ -16,6 +16,7 @@
             <li><a href="create_question">Frage Stellen</a></li>
             <li><a href="../logout">Logout</a></li>
         </ul>
+        <!-- Online Users -->
         </div>
     </div>
 </body>

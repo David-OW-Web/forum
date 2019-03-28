@@ -79,7 +79,7 @@ class QuestionModel {
     }
 
     public function SearchQuestion($queryString) {
-        $stmt = $this->con->prepare("SELECT * FROM question WHERE question_title LIKE CONCAT('%', :queryString, '%') -- LIMIT :li --");
+        $stmt = $this->con->prepare("SELECT fk_user_id, question_from, question_id, question_title FROM question WHERE question_title LIKE CONCAT('%', :queryString, '%') -- LIMIT :li --");
         $stmt->bindParam(":queryString", $queryString);
         // $stmt->bindParam(":li", $limit, PDO::PARAM_INT);
         $stmt->execute();

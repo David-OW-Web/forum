@@ -14,7 +14,6 @@ if(isset($_POST['login'])) {
     $login = $loginObj->Login($email, $password);
     if($login) {
         $user_id = $loginObj->getUserIdByCurrentSession($_SESSION['forum_user']);
-        $session_id = session_id();
         $public_ip = $loginObj->getRealIpAddr();
         $insertData = $loginObj->InsertLoginActivity($user_id, $public_ip);
         header("Location: user/dashboard");

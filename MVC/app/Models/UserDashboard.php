@@ -56,6 +56,12 @@ class UserDashboard
         }
     }
 
+    public function getOnlineUsers() {
+        $st = $this->con->prepare("SELECT * FROM login WHERE fk_online_status_id = 1");
+        $st->execute();
+        return $st->rowCount();
+    }
+
     public function getError($error) {
         if (in_array($error, $this->errorArray)) {
             return "<span class='errorMessage'>$error</span>";

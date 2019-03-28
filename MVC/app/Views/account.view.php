@@ -7,7 +7,6 @@
 </head>
 <body>
 <div class="wrapper">
-    <?php require 'app/Views/dashboard.sidebar.view.php'; ?>
     <aside class="user-sidebar">
     <div class="user-info">
         <strong>Übersicht</strong>

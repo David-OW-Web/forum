@@ -16,6 +16,11 @@ class Account
         $this->con = $pdo;
     }
 
+    /**
+     * Returns the execution of the query for Registration
+     * @param $email, $username, $password, $profile_pic, $status
+     */
+
     public function Register($email, $username, $password,  $profile_pic, $status) {
         $this->validateEmail($email);
         $this->validateUsername($username);
@@ -26,6 +31,43 @@ class Account
             return $this->InsertUserDetails($email, $username, $password, $profile_pic, $status);
         } else {
             return false;
+        }
+    }
+
+
+    /**
+     * Updates the password. Validates the old password and the new password
+     * @param $oldPw, $newPw, $user_id
+     */
+    public function updatePassword($oldPw, $newPw, $user_id) {
+        $this->validatePassword($newPw);
+        $this->validateOldPassword($oldPw, $user_id);
+
+        if(empty($this->errorArray)) {
+            $newPw = hash("sha512", $newPw);
+            $stmt = $this->con->prepare("UPDATE forum_user SET user_password = :newPw WHERE user_id = :id");
+            $stmt->bindParam(":newPw", $newPw);
+            $stmt->bindParam(":id", $user_id);
+            return $stmt->execute();
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns validation of old password
+     * @return void
+     * @param $pw, $user_id
+     */
+    public function validateOldPassword($pw, $user_id) {
+        $pw = hash("sha512", $pw);
+        $stmt = $this->con->prepare("SELECT * FROM forum_user WHERE user_id = :id AND user_password = :pw");
+        $stmt->bindParam(":id", $user_id);
+        $stmt->bindParam(":pw", $pw);
+        $stmt->execute();
+
+        if($stmt->rowCount() == 0) {
+            array_push($this->errorArray, Constants::$passwordIncorrect);
         }
     }
 
@@ -214,6 +256,7 @@ class Account
 
     public function InsertLoginActivity($fk_user_id, $public_ip) {
         $st = $this->con->prepare("INSERT INTO login (fk_user_id, ip_address, user_agent, fk_status_id) VALUES(:u_id, :ip, :ua, 1)");
+        // Fk online status id = 1
         $st->bindParam(":ua", $_SERVER['HTTP_USER_AGENT']);
         $st->bindParam(":u_id", $fk_user_id);
         $st->bindParam(":ip", $public_ip);
@@ -222,6 +265,7 @@ class Account
 
     public function updateLogoutDate($id) {
         $st = $this->con->prepare("UPDATE login SET logout_date = CURRENT_TIMESTAMP() WHERE fk_user_id = :id ORDER BY login_date DESC LIMIT 1");
+        // UPDATE login SET logout_date = CURRENT_TIMESTAMP(), fk_online_status_id = 2 WHERE fk_user_id = :id ORDER BY login_date DESC LIMIT 1
         $st->bindParam(":id", $id);
         return $st->execute();
     }
@@ -243,6 +287,10 @@ class Account
         $stmt = $this->con->prepare("UPDATE login SET fk_status_id = 2 WHERE login_id = :id");
         $stmt->bindParam(":id", $id);
         return $stmt->execute();
+    }
+
+    public function cleanUncleanAccount() {
+        $stmt = $this->con->prepare("UPDATE login SET logout_date = CURRENT_TIMESTAMP(), fk_online_status_id = 2 WHERE login_date = logout_date");
     }
 
     public function accountDangerMessage($user_id) {

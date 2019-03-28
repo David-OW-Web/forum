@@ -44,11 +44,13 @@
         <?php endforeach; ?>
     </div>
 
+    <div class="form-container">
     <form action="" method="post">
         <label for="answer">Antwort</label>
         <textarea name="answer" id="answer" cols="30" rows="10"></textarea>
 
         <button type="submit" name="answer_question">Antworten</button>
     </form>
+    </div>
 </div>
 </body>
